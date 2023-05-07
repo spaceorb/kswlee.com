@@ -1,0 +1,22 @@
+{
+  "name": "kswlee.com-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "build:ui": "rm -rf build && cd ../kswlee.com/ && npm run build && cp -r build ../kswlee.com-backend",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0",
+    "mongoose-unique-validator": "^4.0.0",
+    "nodemon": "^2.0.22"
+  }
+}
