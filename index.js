@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const logger = require("./logger");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
@@ -17,10 +16,10 @@ app.use(express.static(path.join(__dirname, "build")));
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
-    logger.info("connected to MongoDB");
+    console.log("connected to MongoDB");
   })
   .catch((error) => {
-    logger.error("error connecting to MongoDB:", error.message);
+    console.log("error connecting to MongoDB:", error.message);
   });
 
 app.post("/contact", async (req, res) => {
