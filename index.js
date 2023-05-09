@@ -24,6 +24,8 @@ const enforceHTTPS = (req, res, next) => {
 const redirectToNonWWW = (req, res, next) => {
   if (req.headers.host.slice(0, 4) === "www.") {
     const nonWWWHost = req.headers.host.slice(4);
+    console.log("Redirecting to non-www:", nonWWWHost, req.url); // Debug log
+
     return res.redirect(["https://", nonWWWHost, req.url].join(""));
   }
   next();
