@@ -14,7 +14,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 // console.log("hi");
-
+console.log("NODE_ENV:", process.env.NODE_ENV);
 const enforceHTTPS = (req, res, next) => {
   if (req.headers["x-forwarded-proto"] !== "https") {
     return res.redirect(["https://", req.get("Host"), req.url].join(""));
