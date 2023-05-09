@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const middleware = require("./middleware");
 const PORT = process.env.PORT || 3001;
 const NewMessage = require("./models/NewMessage");
 require("dotenv").config();
@@ -14,6 +15,11 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"));
 });
 // console.log("hi");
+
+if (process.env.NODE_ENV === "production") {
+  app.use(middleware.enforceHTTPS);
+  app.use(middleware.redirectToNonWWW);
+}
 
 mongoose
   .connect(process.env.MONGODB)
