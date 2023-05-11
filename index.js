@@ -1,9 +1,10 @@
 const express = require("express");
+const middleware = require("./middleware");
+
 const app = express();
 const path = require("path");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const middleware = require("./middleware");
 const PORT = process.env.PORT || 3001;
 const NewMessage = require("./models/NewMessage");
 require("dotenv").config();
