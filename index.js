@@ -9,15 +9,14 @@ const NewMessage = require("./models/NewMessage");
 require("dotenv").config();
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, "build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/build/index.html"));
-});
 if (process.env.NODE_ENV === "production") {
   app.use(middleware.enforceHTTPS);
   app.use(middleware.redirectToNonWWW);
 }
-
+app.use(express.static(path.join(__dirname, "build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/build/index.html"));
+});
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
