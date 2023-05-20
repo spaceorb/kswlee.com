@@ -1,0 +1,9 @@
+POST https://www.kswlee.com/contact
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "subject": "Hello",
+  "message": "This is a test message."
+}
