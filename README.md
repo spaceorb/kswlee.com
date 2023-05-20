@@ -1,6 +1,4 @@
 ![Web Portfolio Image](https://raw.githubusercontent.com/spaceorb/kswlee.com/main/build/static/media/project1.71ff2d7a0eaad3f7a794.jpeg)
-<<<<<<< HEAD
-
 # Web Portfolio Website (Full-Stack)
 
 #### https://kswlee.com
