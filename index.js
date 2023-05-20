@@ -20,8 +20,11 @@ app.use(express.static(path.join(__dirname, "build")));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"));
 });
-console.log("process.env.NODE_ENV", process.env.NODE_ENV);
+// <<<<<<< HEAD
+// console.log("process.env.NODE_ENV", process.env.NODE_ENV);
 
+// =======
+// >>>>>>> e52fbe99cf448ebffe120fd435bd6221e2b23402
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
